@@ -1,0 +1,14 @@
+{
+  "rescue_rate": 0.5,
+  "default_costs": {
+    "timeout_cost": 75,
+    "reconnect_cost": 12,
+    "false_block_penalty": 5
+  },
+  "category_costs": {
+    "智能温控器": {
+      "false_block_penalty": 2
+    }
+  },
+  "observe_only_categories": ["智能门锁网关"]
+}

@@ -12,6 +12,8 @@ from diagnose import load_commands
 TIMEOUT_COST = 75
 RECONNECT_COST = 12
 SCENARIOS = [0.0,0.25,0.5,0.75,1.0]
+RULE_THRESHOLDS = {'age':[5,10,15,20,30,45,60], 'signal':[4,9,14,19,24,30],
+                   'payload':[40,50,60,70,80,90]}
 
 
 def decide(row, rule):
@@ -20,6 +22,8 @@ def decide(row, rule):
         return False
     if kind == 'all':
         return True
+    if kind == 'age_gt':
+        return row['heartbeat_age_minutes'] > rule['threshold']
     if kind == 'age':
         return row['heartbeat_age_minutes'] >= rule['threshold']
     if kind == 'scoped_age':
@@ -59,8 +63,7 @@ def split_time(rows, cutoff):
 
 def fit_rules(train):
     """Fit only on the supplied training partition. Selection assumes q=0.5."""
-    grids={'age':[5,10,15,20,30,45,60], 'signal':[4,9,14,19,24,30],
-           'payload':[40,50,60,70,80,90]}
+    grids=RULE_THRESHOLDS
     rules={'no_block':{'kind':'none'},'block_all':{'kind':'all'}}
     searches=[]
 
