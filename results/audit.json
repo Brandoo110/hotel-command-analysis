@@ -1,0 +1,25 @@
+{
+  "raw_rows": 1134,
+  "unique_commands": 1080,
+  "duplicate_rows_removed": 54,
+  "outcomes": {
+    "success": 894,
+    "timeout": 140,
+    "unknown": 46
+  },
+  "known_outcomes": 1034,
+  "known_failure_rate": 0.13539651837524178,
+  "failure_rate_bounds": [
+    0.12962962962962962,
+    0.17222222222222222
+  ],
+  "heartbeat_age_minutes": {
+    "min": 0.0,
+    "max": 65.0
+  },
+  "request_range_utc": [
+    "2026-08-31T23:08:00+00:00",
+    "2026-09-07T13:55:00+00:00"
+  ],
+  "source_sha256": "4e36bdd6e2d094ef536d68319a52a82eba3498ef4e985837422c35a9e08d5185"
+}
