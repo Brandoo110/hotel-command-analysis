@@ -1,0 +1,13 @@
+strategy,split,commands,blocked,hit_timeout,blocked_success,blocked_unknown,missed_timeout,net_minutes_q0_5,net_minutes_q1,break_even_q
+no_block,train,759,0,0,0,0,89,0.0,0.0,
+no_block,test,321,0,0,0,0,51,0.0,0.0,
+block_all,train,759,759,89,643,27,0,-5770.5,-2433.0,1.364494382022472
+block_all,test,321,321,51,251,19,0,-1939.5,-27.0,1.0070588235294118
+age,train,759,208,79,122,7,10,466.5,3429.0,0.4212658227848101
+age,test,321,94,36,51,7,15,222.0,1572.0,0.4177777777777778
+signal,train,759,126,21,100,5,68,-724.5,63.0,0.96
+signal,test,321,54,9,43,2,42,-310.5,27.0,0.96
+payload,train,759,26,9,16,1,80,25.5,363.0,0.4622222222222222
+payload,test,321,13,2,10,1,49,-81.0,-6.0,1.04
+scoped_age,train,759,127,64,61,2,25,876.0,3276.0,0.3175
+scoped_age,test,321,58,22,32,4,29,129.0,954.0,0.4218181818181818

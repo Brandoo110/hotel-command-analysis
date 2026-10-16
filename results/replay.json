@@ -1,0 +1,1124 @@
+{
+  "source_sha256": "4e36bdd6e2d094ef536d68319a52a82eba3498ef4e985837422c35a9e08d5185",
+  "cutoff": "2026-09-06T00:00:00+08:00",
+  "train_commands": 759,
+  "test_commands": 321,
+  "cost_model": {
+    "timeout_minutes": 75,
+    "reconnect_minutes": 12,
+    "selection_q": 0.5,
+    "unknown_outcomes": "charge reconnect cost; no assumed benefit"
+  },
+  "limitations": [
+    "q is an assumed reconnect rescue rate, not estimated from the supplied CSV.",
+    "Net savings are counterfactual scenarios, not observed production improvements.",
+    "Full-data exploration preceded this retrospective time replay; it is not a pristine holdout.",
+    "No device IDs: within-device dependence and intervention side effects are not measured.",
+    "Costs follow the task per-command assumption; shared incidents may invalidate additive real-world costs."
+  ],
+  "selected_name": "scoped_age",
+  "selected_rule": {
+    "kind": "scoped_age",
+    "threshold": 20,
+    "properties": [
+      "华东旗舰店",
+      "华北商务分店",
+      "西南精品民宿"
+    ]
+  },
+  "strategies": {
+    "no_block": {
+      "rule": {
+        "kind": "none"
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 0,
+        "hit_timeout": 0,
+        "blocked_success": 0,
+        "blocked_unknown": 0,
+        "missed_timeout": 89,
+        "block_rate": 0.0,
+        "timeout_recall": 0.0,
+        "known_precision": null,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 0,
+        "net_minutes_by_q": {
+          "0.0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.0
+        },
+        "break_even_q": null,
+        "unknown_all_failure_net_minutes_q0_5": 0.0
+      },
+      "test": {
+        "commands": 321,
+        "observed_timeouts": 51,
+        "blocked": 0,
+        "hit_timeout": 0,
+        "blocked_success": 0,
+        "blocked_unknown": 0,
+        "missed_timeout": 51,
+        "block_rate": 0.0,
+        "timeout_recall": 0.0,
+        "known_precision": null,
+        "baseline_known_loss_minutes": 3825,
+        "reconnect_cost_minutes": 0,
+        "net_minutes_by_q": {
+          "0.0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.0
+        },
+        "break_even_q": null,
+        "unknown_all_failure_net_minutes_q0_5": 0.0
+      }
+    },
+    "block_all": {
+      "rule": {
+        "kind": "all"
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 759,
+        "hit_timeout": 89,
+        "blocked_success": 643,
+        "blocked_unknown": 27,
+        "missed_timeout": 0,
+        "block_rate": 1.0,
+        "timeout_recall": 1.0,
+        "known_precision": 0.12158469945355191,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 9108,
+        "net_minutes_by_q": {
+          "0.0": -9108.0,
+          "0.25": -7439.25,
+          "0.5": -5770.5,
+          "0.75": -4101.75,
+          "1.0": -2433.0
+        },
+        "break_even_q": 1.364494382022472,
+        "unknown_all_failure_net_minutes_q0_5": -4758.0
+      },
+      "test": {
+        "commands": 321,
+        "observed_timeouts": 51,
+        "blocked": 321,
+        "hit_timeout": 51,
+        "blocked_success": 251,
+        "blocked_unknown": 19,
+        "missed_timeout": 0,
+        "block_rate": 1.0,
+        "timeout_recall": 1.0,
+        "known_precision": 0.16887417218543047,
+        "baseline_known_loss_minutes": 3825,
+        "reconnect_cost_minutes": 3852,
+        "net_minutes_by_q": {
+          "0.0": -3852.0,
+          "0.25": -2895.75,
+          "0.5": -1939.5,
+          "0.75": -983.25,
+          "1.0": -27.0
+        },
+        "break_even_q": 1.0070588235294118,
+        "unknown_all_failure_net_minutes_q0_5": -1227.0
+      }
+    },
+    "age": {
+      "rule": {
+        "kind": "age",
+        "threshold": 20
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 208,
+        "hit_timeout": 79,
+        "blocked_success": 122,
+        "blocked_unknown": 7,
+        "missed_timeout": 10,
+        "block_rate": 0.2740447957839262,
+        "timeout_recall": 0.8876404494382022,
+        "known_precision": 0.39303482587064675,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 2496,
+        "net_minutes_by_q": {
+          "0.0": -2496.0,
+          "0.25": -1014.75,
+          "0.5": 466.5,
+          "0.75": 1947.75,
+          "1.0": 3429.0
+        },
+        "break_even_q": 0.4212658227848101,
+        "unknown_all_failure_net_minutes_q0_5": 729.0
+      },
+      "test": {
+        "commands": 321,
+        "observed_timeouts": 51,
+        "blocked": 94,
+        "hit_timeout": 36,
+        "blocked_success": 51,
+        "blocked_unknown": 7,
+        "missed_timeout": 15,
+        "block_rate": 0.29283489096573206,
+        "timeout_recall": 0.7058823529411765,
+        "known_precision": 0.41379310344827586,
+        "baseline_known_loss_minutes": 3825,
+        "reconnect_cost_minutes": 1128,
+        "net_minutes_by_q": {
+          "0.0": -1128.0,
+          "0.25": -453.0,
+          "0.5": 222.0,
+          "0.75": 897.0,
+          "1.0": 1572.0
+        },
+        "break_even_q": 0.4177777777777778,
+        "unknown_all_failure_net_minutes_q0_5": 484.5
+      }
+    },
+    "signal": {
+      "rule": {
+        "kind": "signal",
+        "threshold": 4
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 126,
+        "hit_timeout": 21,
+        "blocked_success": 100,
+        "blocked_unknown": 5,
+        "missed_timeout": 68,
+        "block_rate": 0.16600790513833993,
+        "timeout_recall": 0.23595505617977527,
+        "known_precision": 0.17355371900826447,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1512,
+        "net_minutes_by_q": {
+          "0.0": -1512.0,
+          "0.25": -1118.25,
+          "0.5": -724.5,
+          "0.75": -330.75,
+          "1.0": 63.0
+        },
+        "break_even_q": 0.96,
+        "unknown_all_failure_net_minutes_q0_5": -537.0
+      },
+      "test": {
+        "commands": 321,
+        "observed_timeouts": 51,
+        "blocked": 54,
+        "hit_timeout": 9,
+        "blocked_success": 43,
+        "blocked_unknown": 2,
+        "missed_timeout": 42,
+        "block_rate": 0.16822429906542055,
+        "timeout_recall": 0.17647058823529413,
+        "known_precision": 0.17307692307692307,
+        "baseline_known_loss_minutes": 3825,
+        "reconnect_cost_minutes": 648,
+        "net_minutes_by_q": {
+          "0.0": -648.0,
+          "0.25": -479.25,
+          "0.5": -310.5,
+          "0.75": -141.75,
+          "1.0": 27.0
+        },
+        "break_even_q": 0.96,
+        "unknown_all_failure_net_minutes_q0_5": -235.5
+      }
+    },
+    "payload": {
+      "rule": {
+        "kind": "payload",
+        "threshold": 80
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 26,
+        "hit_timeout": 9,
+        "blocked_success": 16,
+        "blocked_unknown": 1,
+        "missed_timeout": 80,
+        "block_rate": 0.034255599472990776,
+        "timeout_recall": 0.10112359550561797,
+        "known_precision": 0.36,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 312,
+        "net_minutes_by_q": {
+          "0.0": -312.0,
+          "0.25": -143.25,
+          "0.5": 25.5,
+          "0.75": 194.25,
+          "1.0": 363.0
+        },
+        "break_even_q": 0.4622222222222222,
+        "unknown_all_failure_net_minutes_q0_5": 63.0
+      },
+      "test": {
+        "commands": 321,
+        "observed_timeouts": 51,
+        "blocked": 13,
+        "hit_timeout": 2,
+        "blocked_success": 10,
+        "blocked_unknown": 1,
+        "missed_timeout": 49,
+        "block_rate": 0.040498442367601244,
+        "timeout_recall": 0.0392156862745098,
+        "known_precision": 0.16666666666666666,
+        "baseline_known_loss_minutes": 3825,
+        "reconnect_cost_minutes": 156,
+        "net_minutes_by_q": {
+          "0.0": -156.0,
+          "0.25": -118.5,
+          "0.5": -81.0,
+          "0.75": -43.5,
+          "1.0": -6.0
+        },
+        "break_even_q": 1.04,
+        "unknown_all_failure_net_minutes_q0_5": -43.5
+      }
+    },
+    "scoped_age": {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 20,
+        "properties": [
+          "华东旗舰店",
+          "华北商务分店",
+          "西南精品民宿"
+        ]
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 127,
+        "hit_timeout": 64,
+        "blocked_success": 61,
+        "blocked_unknown": 2,
+        "missed_timeout": 25,
+        "block_rate": 0.1673254281949934,
+        "timeout_recall": 0.7191011235955056,
+        "known_precision": 0.512,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1524,
+        "net_minutes_by_q": {
+          "0.0": -1524.0,
+          "0.25": -324.0,
+          "0.5": 876.0,
+          "0.75": 2076.0,
+          "1.0": 3276.0
+        },
+        "break_even_q": 0.3175,
+        "unknown_all_failure_net_minutes_q0_5": 951.0
+      },
+      "test": {
+        "commands": 321,
+        "observed_timeouts": 51,
+        "blocked": 58,
+        "hit_timeout": 22,
+        "blocked_success": 32,
+        "blocked_unknown": 4,
+        "missed_timeout": 29,
+        "block_rate": 0.1806853582554517,
+        "timeout_recall": 0.43137254901960786,
+        "known_precision": 0.4074074074074074,
+        "baseline_known_loss_minutes": 3825,
+        "reconnect_cost_minutes": 696,
+        "net_minutes_by_q": {
+          "0.0": -696.0,
+          "0.25": -283.5,
+          "0.5": 129.0,
+          "0.75": 541.5,
+          "1.0": 954.0
+        },
+        "break_even_q": 0.4218181818181818,
+        "unknown_all_failure_net_minutes_q0_5": 279.0
+      }
+    }
+  },
+  "training_search": [
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 5
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 558,
+        "hit_timeout": 88,
+        "blocked_success": 449,
+        "blocked_unknown": 21,
+        "missed_timeout": 1,
+        "block_rate": 0.7351778656126482,
+        "timeout_recall": 0.9887640449438202,
+        "known_precision": 0.16387337057728119,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 6696,
+        "net_minutes_by_q": {
+          "0.0": -6696.0,
+          "0.25": -5046.0,
+          "0.5": -3396.0,
+          "0.75": -1746.0,
+          "1.0": -96.0
+        },
+        "break_even_q": 1.0145454545454546,
+        "unknown_all_failure_net_minutes_q0_5": -2608.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 10
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 393,
+        "hit_timeout": 84,
+        "blocked_success": 293,
+        "blocked_unknown": 16,
+        "missed_timeout": 5,
+        "block_rate": 0.5177865612648221,
+        "timeout_recall": 0.9438202247191011,
+        "known_precision": 0.22281167108753316,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 4716,
+        "net_minutes_by_q": {
+          "0.0": -4716.0,
+          "0.25": -3141.0,
+          "0.5": -1566.0,
+          "0.75": 9.0,
+          "1.0": 1584.0
+        },
+        "break_even_q": 0.7485714285714286,
+        "unknown_all_failure_net_minutes_q0_5": -966.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 15
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 222,
+        "hit_timeout": 81,
+        "blocked_success": 134,
+        "blocked_unknown": 7,
+        "missed_timeout": 8,
+        "block_rate": 0.2924901185770751,
+        "timeout_recall": 0.9101123595505618,
+        "known_precision": 0.3767441860465116,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 2664,
+        "net_minutes_by_q": {
+          "0.0": -2664.0,
+          "0.25": -1145.25,
+          "0.5": 373.5,
+          "0.75": 1892.25,
+          "1.0": 3411.0
+        },
+        "break_even_q": 0.43851851851851853,
+        "unknown_all_failure_net_minutes_q0_5": 636.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 20
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 208,
+        "hit_timeout": 79,
+        "blocked_success": 122,
+        "blocked_unknown": 7,
+        "missed_timeout": 10,
+        "block_rate": 0.2740447957839262,
+        "timeout_recall": 0.8876404494382022,
+        "known_precision": 0.39303482587064675,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 2496,
+        "net_minutes_by_q": {
+          "0.0": -2496.0,
+          "0.25": -1014.75,
+          "0.5": 466.5,
+          "0.75": 1947.75,
+          "1.0": 3429.0
+        },
+        "break_even_q": 0.4212658227848101,
+        "unknown_all_failure_net_minutes_q0_5": 729.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 30
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 160,
+        "hit_timeout": 62,
+        "blocked_success": 93,
+        "blocked_unknown": 5,
+        "missed_timeout": 27,
+        "block_rate": 0.21080368906455862,
+        "timeout_recall": 0.6966292134831461,
+        "known_precision": 0.4,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1920,
+        "net_minutes_by_q": {
+          "0.0": -1920.0,
+          "0.25": -757.5,
+          "0.5": 405.0,
+          "0.75": 1567.5,
+          "1.0": 2730.0
+        },
+        "break_even_q": 0.4129032258064516,
+        "unknown_all_failure_net_minutes_q0_5": 592.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 45
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 92,
+        "hit_timeout": 37,
+        "blocked_success": 52,
+        "blocked_unknown": 3,
+        "missed_timeout": 52,
+        "block_rate": 0.12121212121212122,
+        "timeout_recall": 0.4157303370786517,
+        "known_precision": 0.4157303370786517,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1104,
+        "net_minutes_by_q": {
+          "0.0": -1104.0,
+          "0.25": -410.25,
+          "0.5": 283.5,
+          "0.75": 977.25,
+          "1.0": 1671.0
+        },
+        "break_even_q": 0.3978378378378378,
+        "unknown_all_failure_net_minutes_q0_5": 396.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "age",
+        "threshold": 60
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 28,
+        "hit_timeout": 11,
+        "blocked_success": 16,
+        "blocked_unknown": 1,
+        "missed_timeout": 78,
+        "block_rate": 0.03689064558629776,
+        "timeout_recall": 0.12359550561797752,
+        "known_precision": 0.4074074074074074,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 336,
+        "net_minutes_by_q": {
+          "0.0": -336.0,
+          "0.25": -129.75,
+          "0.5": 76.5,
+          "0.75": 282.75,
+          "1.0": 489.0
+        },
+        "break_even_q": 0.4072727272727273,
+        "unknown_all_failure_net_minutes_q0_5": 114.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "signal",
+        "threshold": 4
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 126,
+        "hit_timeout": 21,
+        "blocked_success": 100,
+        "blocked_unknown": 5,
+        "missed_timeout": 68,
+        "block_rate": 0.16600790513833993,
+        "timeout_recall": 0.23595505617977527,
+        "known_precision": 0.17355371900826447,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1512,
+        "net_minutes_by_q": {
+          "0.0": -1512.0,
+          "0.25": -1118.25,
+          "0.5": -724.5,
+          "0.75": -330.75,
+          "1.0": 63.0
+        },
+        "break_even_q": 0.96,
+        "unknown_all_failure_net_minutes_q0_5": -537.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "signal",
+        "threshold": 9
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 256,
+        "hit_timeout": 32,
+        "blocked_success": 214,
+        "blocked_unknown": 10,
+        "missed_timeout": 57,
+        "block_rate": 0.3372859025032938,
+        "timeout_recall": 0.3595505617977528,
+        "known_precision": 0.13008130081300814,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 3072,
+        "net_minutes_by_q": {
+          "0.0": -3072.0,
+          "0.25": -2472.0,
+          "0.5": -1872.0,
+          "0.75": -1272.0,
+          "1.0": -672.0
+        },
+        "break_even_q": 1.28,
+        "unknown_all_failure_net_minutes_q0_5": -1497.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "signal",
+        "threshold": 14
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 381,
+        "hit_timeout": 46,
+        "blocked_success": 320,
+        "blocked_unknown": 15,
+        "missed_timeout": 43,
+        "block_rate": 0.5019762845849802,
+        "timeout_recall": 0.5168539325842697,
+        "known_precision": 0.12568306010928962,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 4572,
+        "net_minutes_by_q": {
+          "0.0": -4572.0,
+          "0.25": -3709.5,
+          "0.5": -2847.0,
+          "0.75": -1984.5,
+          "1.0": -1122.0
+        },
+        "break_even_q": 1.325217391304348,
+        "unknown_all_failure_net_minutes_q0_5": -2284.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "signal",
+        "threshold": 19
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 499,
+        "hit_timeout": 64,
+        "blocked_success": 416,
+        "blocked_unknown": 19,
+        "missed_timeout": 25,
+        "block_rate": 0.6574440052700923,
+        "timeout_recall": 0.7191011235955056,
+        "known_precision": 0.13333333333333333,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 5988,
+        "net_minutes_by_q": {
+          "0.0": -5988.0,
+          "0.25": -4788.0,
+          "0.5": -3588.0,
+          "0.75": -2388.0,
+          "1.0": -1188.0
+        },
+        "break_even_q": 1.2475,
+        "unknown_all_failure_net_minutes_q0_5": -2875.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "signal",
+        "threshold": 24
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 631,
+        "hit_timeout": 74,
+        "blocked_success": 533,
+        "blocked_unknown": 24,
+        "missed_timeout": 15,
+        "block_rate": 0.8313570487483531,
+        "timeout_recall": 0.8314606741573034,
+        "known_precision": 0.12191103789126853,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 7572,
+        "net_minutes_by_q": {
+          "0.0": -7572.0,
+          "0.25": -6184.5,
+          "0.5": -4797.0,
+          "0.75": -3409.5,
+          "1.0": -2022.0
+        },
+        "break_even_q": 1.3643243243243244,
+        "unknown_all_failure_net_minutes_q0_5": -3897.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "signal",
+        "threshold": 30
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 759,
+        "hit_timeout": 89,
+        "blocked_success": 643,
+        "blocked_unknown": 27,
+        "missed_timeout": 0,
+        "block_rate": 1.0,
+        "timeout_recall": 1.0,
+        "known_precision": 0.12158469945355191,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 9108,
+        "net_minutes_by_q": {
+          "0.0": -9108.0,
+          "0.25": -7439.25,
+          "0.5": -5770.5,
+          "0.75": -4101.75,
+          "1.0": -2433.0
+        },
+        "break_even_q": 1.364494382022472,
+        "unknown_all_failure_net_minutes_q0_5": -4758.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "payload",
+        "threshold": 40
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 606,
+        "hit_timeout": 76,
+        "blocked_success": 511,
+        "blocked_unknown": 19,
+        "missed_timeout": 13,
+        "block_rate": 0.7984189723320159,
+        "timeout_recall": 0.8539325842696629,
+        "known_precision": 0.12947189097103917,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 7272,
+        "net_minutes_by_q": {
+          "0.0": -7272.0,
+          "0.25": -5847.0,
+          "0.5": -4422.0,
+          "0.75": -2997.0,
+          "1.0": -1572.0
+        },
+        "break_even_q": 1.2757894736842106,
+        "unknown_all_failure_net_minutes_q0_5": -3709.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "payload",
+        "threshold": 50
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 438,
+        "hit_timeout": 62,
+        "blocked_success": 359,
+        "blocked_unknown": 17,
+        "missed_timeout": 27,
+        "block_rate": 0.5770750988142292,
+        "timeout_recall": 0.6966292134831461,
+        "known_precision": 0.14726840855106887,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 5256,
+        "net_minutes_by_q": {
+          "0.0": -5256.0,
+          "0.25": -4093.5,
+          "0.5": -2931.0,
+          "0.75": -1768.5,
+          "1.0": -606.0
+        },
+        "break_even_q": 1.1303225806451613,
+        "unknown_all_failure_net_minutes_q0_5": -2293.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "payload",
+        "threshold": 60
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 247,
+        "hit_timeout": 42,
+        "blocked_success": 195,
+        "blocked_unknown": 10,
+        "missed_timeout": 47,
+        "block_rate": 0.3254281949934124,
+        "timeout_recall": 0.47191011235955055,
+        "known_precision": 0.17721518987341772,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 2964,
+        "net_minutes_by_q": {
+          "0.0": -2964.0,
+          "0.25": -2176.5,
+          "0.5": -1389.0,
+          "0.75": -601.5,
+          "1.0": 186.0
+        },
+        "break_even_q": 0.940952380952381,
+        "unknown_all_failure_net_minutes_q0_5": -1014.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "payload",
+        "threshold": 70
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 105,
+        "hit_timeout": 20,
+        "blocked_success": 84,
+        "blocked_unknown": 1,
+        "missed_timeout": 69,
+        "block_rate": 0.1383399209486166,
+        "timeout_recall": 0.2247191011235955,
+        "known_precision": 0.19230769230769232,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1260,
+        "net_minutes_by_q": {
+          "0.0": -1260.0,
+          "0.25": -885.0,
+          "0.5": -510.0,
+          "0.75": -135.0,
+          "1.0": 240.0
+        },
+        "break_even_q": 0.84,
+        "unknown_all_failure_net_minutes_q0_5": -472.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "payload",
+        "threshold": 80
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 26,
+        "hit_timeout": 9,
+        "blocked_success": 16,
+        "blocked_unknown": 1,
+        "missed_timeout": 80,
+        "block_rate": 0.034255599472990776,
+        "timeout_recall": 0.10112359550561797,
+        "known_precision": 0.36,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 312,
+        "net_minutes_by_q": {
+          "0.0": -312.0,
+          "0.25": -143.25,
+          "0.5": 25.5,
+          "0.75": 194.25,
+          "1.0": 363.0
+        },
+        "break_even_q": 0.4622222222222222,
+        "unknown_all_failure_net_minutes_q0_5": 63.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "payload",
+        "threshold": 90
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 4,
+        "hit_timeout": 1,
+        "blocked_success": 3,
+        "blocked_unknown": 0,
+        "missed_timeout": 88,
+        "block_rate": 0.005270092226613966,
+        "timeout_recall": 0.011235955056179775,
+        "known_precision": 0.25,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 48,
+        "net_minutes_by_q": {
+          "0.0": -48.0,
+          "0.25": -29.25,
+          "0.5": -10.5,
+          "0.75": 8.25,
+          "1.0": 27.0
+        },
+        "break_even_q": 0.64,
+        "unknown_all_failure_net_minutes_q0_5": -10.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 5,
+        "properties": []
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 0,
+        "hit_timeout": 0,
+        "blocked_success": 0,
+        "blocked_unknown": 0,
+        "missed_timeout": 89,
+        "block_rate": 0.0,
+        "timeout_recall": 0.0,
+        "known_precision": null,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 0,
+        "net_minutes_by_q": {
+          "0.0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.0
+        },
+        "break_even_q": null,
+        "unknown_all_failure_net_minutes_q0_5": 0.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 10,
+        "properties": []
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 0,
+        "hit_timeout": 0,
+        "blocked_success": 0,
+        "blocked_unknown": 0,
+        "missed_timeout": 89,
+        "block_rate": 0.0,
+        "timeout_recall": 0.0,
+        "known_precision": null,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 0,
+        "net_minutes_by_q": {
+          "0.0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.0
+        },
+        "break_even_q": null,
+        "unknown_all_failure_net_minutes_q0_5": 0.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 15,
+        "properties": [
+          "华东旗舰店",
+          "华北商务分店",
+          "西南精品民宿"
+        ]
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 134,
+        "hit_timeout": 66,
+        "blocked_success": 66,
+        "blocked_unknown": 2,
+        "missed_timeout": 23,
+        "block_rate": 0.17654808959156784,
+        "timeout_recall": 0.7415730337078652,
+        "known_precision": 0.5,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1608,
+        "net_minutes_by_q": {
+          "0.0": -1608.0,
+          "0.25": -370.5,
+          "0.5": 867.0,
+          "0.75": 2104.5,
+          "1.0": 3342.0
+        },
+        "break_even_q": 0.32484848484848483,
+        "unknown_all_failure_net_minutes_q0_5": 942.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 20,
+        "properties": [
+          "华东旗舰店",
+          "华北商务分店",
+          "西南精品民宿"
+        ]
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 127,
+        "hit_timeout": 64,
+        "blocked_success": 61,
+        "blocked_unknown": 2,
+        "missed_timeout": 25,
+        "block_rate": 0.1673254281949934,
+        "timeout_recall": 0.7191011235955056,
+        "known_precision": 0.512,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1524,
+        "net_minutes_by_q": {
+          "0.0": -1524.0,
+          "0.25": -324.0,
+          "0.5": 876.0,
+          "0.75": 2076.0,
+          "1.0": 3276.0
+        },
+        "break_even_q": 0.3175,
+        "unknown_all_failure_net_minutes_q0_5": 951.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 30,
+        "properties": [
+          "华东旗舰店",
+          "华北商务分店",
+          "西南精品民宿"
+        ]
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 100,
+        "hit_timeout": 50,
+        "blocked_success": 49,
+        "blocked_unknown": 1,
+        "missed_timeout": 39,
+        "block_rate": 0.13175230566534915,
+        "timeout_recall": 0.5617977528089888,
+        "known_precision": 0.5050505050505051,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 1200,
+        "net_minutes_by_q": {
+          "0.0": -1200.0,
+          "0.25": -262.5,
+          "0.5": 675.0,
+          "0.75": 1612.5,
+          "1.0": 2550.0
+        },
+        "break_even_q": 0.32,
+        "unknown_all_failure_net_minutes_q0_5": 712.5
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 45,
+        "properties": [
+          "华中枢纽客栈",
+          "华北商务分店"
+        ]
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 49,
+        "hit_timeout": 20,
+        "blocked_success": 27,
+        "blocked_unknown": 2,
+        "missed_timeout": 69,
+        "block_rate": 0.06455862977602109,
+        "timeout_recall": 0.2247191011235955,
+        "known_precision": 0.425531914893617,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 588,
+        "net_minutes_by_q": {
+          "0.0": -588.0,
+          "0.25": -213.0,
+          "0.5": 162.0,
+          "0.75": 537.0,
+          "1.0": 912.0
+        },
+        "break_even_q": 0.392,
+        "unknown_all_failure_net_minutes_q0_5": 237.0
+      }
+    },
+    {
+      "rule": {
+        "kind": "scoped_age",
+        "threshold": 60,
+        "properties": []
+      },
+      "train": {
+        "commands": 759,
+        "observed_timeouts": 89,
+        "blocked": 0,
+        "hit_timeout": 0,
+        "blocked_success": 0,
+        "blocked_unknown": 0,
+        "missed_timeout": 89,
+        "block_rate": 0.0,
+        "timeout_recall": 0.0,
+        "known_precision": null,
+        "baseline_known_loss_minutes": 6675,
+        "reconnect_cost_minutes": 0,
+        "net_minutes_by_q": {
+          "0.0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "1.0": 0.0
+        },
+        "break_even_q": null,
+        "unknown_all_failure_net_minutes_q0_5": 0.0
+      }
+    }
+  ]
+}
